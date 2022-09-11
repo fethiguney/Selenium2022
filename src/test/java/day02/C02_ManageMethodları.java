@@ -34,7 +34,7 @@ public class C02_ManageMethodları {
 
         System.out.println("Fullscreen pencere olculeri : "+driver.manage().window().getSize());
 
-
+        driver.close();
 
 
     }

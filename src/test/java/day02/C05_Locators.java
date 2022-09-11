@@ -21,17 +21,19 @@ public class C05_Locators {
         //Amazonda Nutella aratın
 
         //id kullanarak
-        /*WebElement searchBox=driver.findElement(By.id("twotabsearchtextbox"));
-        searchBox.sendKeys("Nutella"+ Keys.ENTER);
-*/
+        WebElement searchbox=driver.findElement(By.id("twotabsearchtextbox"));
+        searchbox.sendKeys("Nutella"+Keys.ENTER);
+
+
+
         //name kullanarak
       /* WebElement searchBox=driver.findElement(By.name("field-keywords"));
         searchBox.sendKeys("Nutella"+ Keys.ENTER);*/
 
         //link text kullanımı
-       driver.findElement(By.linkText("Become an Affiliate")).click();
+      // driver.findElement(By.linkText("Become an Affiliate")).click();
 
-
+        driver.close();
 
 
 

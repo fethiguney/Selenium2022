@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
+import java.util.List;
 
 public class C09_LoginTest {
      /*
@@ -42,36 +43,50 @@ f. “Addresses” ve “Sign Out” textlerinin görüntülendiğini( displayed
         //c. email textbox(id="session_email"),password textbox(id="session_password"),
         // and signin button(class="btn btn-primary") elementlerini locate
 
-        WebElement emailTextBox=driver.findElement(By.id("session_email"));
-        WebElement passwordTextBox=driver.findElement(By.id("session_password"));
-        WebElement signInButton=driver.findElement(By.className("btn btn-primary"));
-
-        /*
+         /*
         d. Kullanıcı adını ve şifreyi aşağıya girin ve oturum aç (sign in)buttonunu tıklayın:
         i. Username : testtechproed@gmail.com
         ii. Password : Test1234!
          */
 
-        /*emailTextBox.sendKeys("testtechproed@gmail.com");
-        emailTextBox.click();*/
+        WebElement emailTextBox=driver.findElement(By.id("session_email"));
+        emailTextBox.sendKeys("testtechproed@gmail.com");
 
+
+        WebElement passwordTextBox=driver.findElement(By.id("session_password"));
         passwordTextBox.sendKeys("Test1234!");
-        signButton.click();
 
-        //e. Expected user id nin
+       WebElement signInButton=driver.findElement(By.name("commit"));
+       signInButton.click();
+
+            //e. Expected user id nin
         //testtechproed@gmail.com oldugunu dogrulayin(verify).
 
         String expectedUserId="testtechproed@gmail.com";
         WebElement currentUserText=driver.findElement(By.className("navbar-text"));
-        if (currentUserText.equals(expectedUserId)) {
+        System.out.println(currentUserText.getText());
+
+        if (currentUserText.getText().equals(expectedUserId)) {
             System.out.println("Expected user id \'testtechproed@gmail.com\' Test PASSED");
         } else {
             System.out.println("Expected user id does not \'testtechproed@gmail.com\' Test FAILED");
         }
 
         //f. “Addresses” ve “Sign Out” textlerinin görüntülendiğini( displayed) doğrulayin(verify).
+        WebElement adressButton=driver.findElement(By.linkText("Addresses"));
+        boolean resultAdress=adressButton.isDisplayed();
+        if (resultAdress==true) {
+            System.out.println("\'Addresses\' text is displayed");
+        } else {
+            System.out.println("\'Addresses\' text is not displayed");
+        }
+
+        List<WebElement> linkNumbers=driver.findElements(By.tagName("a"));
+        System.out.println("Number of links on the page : "+linkNumbers.size());
 
 
+
+    driver.close();
 
     }
 }

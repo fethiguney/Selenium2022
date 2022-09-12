@@ -69,11 +69,11 @@ public class C01_LoginTest {
 
         //linkleri yazdiriniz 1.yol forEach ile
         for (WebElement w: links) {
-            System.out.println(w);
+            System.out.println(w.getText());
         }
 
         //linkleri yazdiriniz 2.yol lambda ile
-        links.forEach(t-> System.out.println(t));
+        links.forEach(t-> System.out.println(t.getText()));
 
 
         driver.close();

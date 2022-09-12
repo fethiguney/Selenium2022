@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
+import java.util.List;
 
 public class C01_LoginTest {
     /*
@@ -63,9 +64,19 @@ public class C01_LoginTest {
             System.out.println("Sign out test FAILED");
         }
 
+        List<WebElement> links=driver.findElements(By.tagName("a"));
+        System.out.println("Number of links on page : "+links.size());
+
+        //linkleri yazdiriniz 1.yol forEach ile
+        for (WebElement w: links) {
+            System.out.println(w);
+        }
+
+        //linkleri yazdiriniz 2.yol lambda ile
+        links.forEach(t-> System.out.println(t));
 
 
-
+        driver.close();
 
     }
 }
